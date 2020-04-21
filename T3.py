@@ -1,6 +1,7 @@
 #Truck3
 import socket                
-import time 
+import time
+
 s = socket.socket()          
 port = 1241          
 
@@ -11,13 +12,12 @@ while True:
     t = dat.split(' ')
     loc = t[0]
     ti =int(t[1])
+    
     con = s.recv(1024).decode('utf-8')
     if con=='false':
         s.send(t[1].encode('utf-8'))
+        
     b=loc+' Truck3\n'
     print("Writing into file")
     s.send(b.encode('utf-8'))
     
-    #msg=input()
-    #s.send(msg.encode('ascii'))
-    # close the connection 
